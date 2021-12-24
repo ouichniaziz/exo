@@ -8,7 +8,7 @@ const Movie = () => {
   const [searchInputByName, setSearchInputByName] = useState("");
   const [movies, setMovies] = useState([]);
   const [searchData, setSearchData] = useState([]);
-  const dataArray = !searchInputByName.length ? movies : searchData;
+  const dataArray = !searchInputByName.length ? movies.slice(0, 10) : searchData;
 
   // Search Input from SearchBar Component
   const handleSearchByName = (searchInput) => {

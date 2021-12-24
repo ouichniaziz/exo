@@ -6,13 +6,12 @@ import axios from "axios";
 function App() {
   const [user, setUser] = useState(false);
 
-
   // Just for creating a user (Not best practice)
   useEffect(() => {
     const createUser = async () => {
       if (!user) {
         try {
-          await axios.post("http://localhost:3001/user", {
+        await axios.post("http://localhost:3001/user", {
             username: "User",
           });
           setUser(true);
@@ -23,7 +22,6 @@ function App() {
     };
     createUser();
   }, []);
-  console.log(!user);
   return (
     <div className="movies">
       <Movie />

@@ -18,4 +18,16 @@ export class LikeService {
       console.log(err);
     }
   }
+
+  async likeMovie(body) {
+    await this.likeModule.updateOne(
+      { username: body.username },
+      { $addToSet: { likes: body.id } },
+      { new: true },
+    );
+  }
+
+  async getUser(username) {
+    return await this.likeModule.findOne({ username: username });
+  }
 }

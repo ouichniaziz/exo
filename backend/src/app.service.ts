@@ -11,9 +11,8 @@ export class AppService {
   ) {}
   getMovies() {
     const apiKey = this.configService.get('API_KEY');
-    console.log(apiKey);
     return this.httpService
-      .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
+      .get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`)
       .pipe(map((res) => res.data));
   }
 }

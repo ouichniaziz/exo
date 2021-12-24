@@ -1,0 +1,26 @@
+
+.search__container {
+    height: 40px;
+    margin-bottom: 30px;
+}
+
+.search__container input {
+    font-family: 'Raleway', sans-serif;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 8px;
+    height: 100%;
+    border: none;
+    border-bottom: 1px solid rgb(194, 194, 194);
+    border-width: 80%;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.search__container input:focus {
+    outline: none;
+    border-bottom: 1px solid rgb(39, 39, 39);
+}

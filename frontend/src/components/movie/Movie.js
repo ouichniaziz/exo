@@ -43,19 +43,18 @@ const Movie = () => {
         <SearchBar search={handleSearchByName} data={handleSearchData} />
       </div>
       {/* Get 10 elements from the array of movies */}
-
       {dataArray.map((movie, key) => (
         <div className="movie__container" key={key}>
           <div className="movie__container-image">
             <img
-              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              src={ movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : 'https://www.clashofclanshacksadvice.com/wp-content/uploads/2020/08/wp-header-logo-163.png' }
               alt={`${movie.title} poster`}
             />
           </div>
 
           <div className="movie__container-infos">
             <h1 className="title">{movie.title}</h1>
-            <h2 className="infos">Realease Date: {movie.release_date} </h2>
+            <h2 className="infos">Release Date: {movie.release_date} </h2>
             <h2 className="infos">
               Rating:{" "}
               <span className={`rating ${ratingColor(movie.vote_average)}`}>
@@ -66,7 +65,7 @@ const Movie = () => {
           </div>
         </div>
       ))}
-      {!searchInputByName ? (
+      {!searchInputByName || searchData ? (
         ""
       ) : (
         <div className="infos__search">

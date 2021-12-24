@@ -1,0 +1,16 @@
+.like__container {
+    margin: 18px 0 6px 24px;
+}
+
+.like__container-btn {
+    background-color: rgb(209, 209, 209);
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.like__container-btn.liked {
+    background-color: rgb(112, 250, 158);
+
+}

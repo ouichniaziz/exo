@@ -6,10 +6,15 @@ import "./movie.css";
 const Movie = () => {
   const [searchInputByName, setSearchInputByName] = useState("");
   const [movies, setMovies] = useState([]);
+  const [searchData, setSearchData] = useState([]);
 
   // Search Input from SearchBar Component
   const handleSearchByName = (searchInput) => {
     setSearchInputByName(searchInput);
+  };
+
+  const handleSearchData = (data) => {
+    setSearchData(data);
   };
 
   // Add class in rating span
@@ -30,12 +35,18 @@ const Movie = () => {
     };
     fetch();
   }, []);
+
+  const dataArray = !searchInputByName.length ? movies : searchData;
+
   return (
+ 
     <>
       <div className="search__container">
-        <SearchBar search={handleSearchByName} />
+        <SearchBar search={handleSearchByName} data={handleSearchData} />
       </div>
-      {movies.map((movie, key) => (
+      {/* Get 10 elements from the array of movies */}
+    
+      {dataArray.map((movie, key) => (
         <div className="movie__container" key={key}>
           <div className="movie__container-image">
             <img
@@ -55,7 +66,10 @@ const Movie = () => {
             </h2>
           </div>
         </div>
-      ))}
+        ))}
+        <div className="infos__search">
+        <h3 className="infos__search-text">Click Enter to Search</h3>
+        </div>
     </>
   );
 };

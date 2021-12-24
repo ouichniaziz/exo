@@ -15,4 +15,13 @@ export class AppService {
       .get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`)
       .pipe(map((res) => res.data));
   }
+
+  getMoviesSearch(search) {
+    const apiKey = this.configService.get('API_KEY');
+    return this.httpService
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${search}`,
+      )
+      .pipe(map((res) => res.data));
+  }
 }

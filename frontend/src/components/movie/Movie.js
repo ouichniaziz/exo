@@ -8,7 +8,9 @@ const Movie = () => {
   const [searchInputByName, setSearchInputByName] = useState("");
   const [movies, setMovies] = useState([]);
   const [searchData, setSearchData] = useState([]);
-  const dataArray = !searchInputByName.length ? movies.slice(0, 10) : searchData;
+  const dataArray = !searchInputByName.length
+    ? movies.slice(0, 10)
+    : searchData;
 
   // Search Input from SearchBar Component
   const handleSearchByName = (searchInput) => {
@@ -37,6 +39,7 @@ const Movie = () => {
     };
     fetch();
   }, []);
+  console.log(searchData);
   return (
     <>
       <div className="search__container">
@@ -47,7 +50,11 @@ const Movie = () => {
         <div className="movie__container" key={key}>
           <div className="movie__container-image">
             <img
-              src={ movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : 'https://www.clashofclanshacksadvice.com/wp-content/uploads/2020/08/wp-header-logo-163.png' }
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                  : "https://www.clashofclanshacksadvice.com/wp-content/uploads/2020/08/wp-header-logo-163.png"
+              }
               alt={`${movie.title} poster`}
             />
           </div>
@@ -65,12 +72,12 @@ const Movie = () => {
           </div>
         </div>
       ))}
-      {!searchInputByName || searchData ? (
-        ""
-      ) : (
+      {searchInputByName && !searchData.length ? (
         <div className="infos__search">
           <h3 className="infos__search-text">Click Enter to Search</h3>
         </div>
+      ) : (
+        ""
       )}
     </>
   );
